@@ -3,35 +3,35 @@ package config
 import "time"
 
 const (
-	IRCD_DefaultPort         = 4242
-	IRCD_DefaultName         = "IRCD-GOLANG-SERVER"
-	IRCD_DefaultMaxClients   = 1000
-	IRCD_DefaultPingInterval = 90 * time.Second
-	IRCD_DefaultPingTimeout  = 30 * time.Second
+	DefaultPort         = 4242
+	DefaultName         = "ircd.example.com"
+	DefaultMaxClients   = 1000
+	DefaultPingInterval = 90 * time.Second
+	DefaultPingTimeout  = 30 * time.Second
 )
 
-type IRCDPing struct {
+type Ping struct {
 	Interval time.Duration
 	Timeout  time.Duration
 }
 
-type IRCDConfig struct {
+type Config struct {
 	Port       uint16
 	ServerName string
 	MaxClients uint
-	Ping       IRCDPing
+	Ping       Ping
 	MOTD       []string
 }
 
-func DefaultConfig() *IRCDConfig {
-	return &IRCDConfig{
-		Port:       IRCD_DefaultPort,
-		ServerName: IRCD_DefaultName,
-		MaxClients: IRCD_DefaultMaxClients,
-		Ping: IRCDPing{
-			Interval: IRCD_DefaultPingInterval,
-			Timeout:  IRCD_DefaultPingTimeout,
+func DefaultConfig() *Config {
+	return &Config{
+		Port:       DefaultPort,
+		ServerName: DefaultName,
+		MaxClients: DefaultMaxClients,
+		Ping: Ping{
+			Interval: DefaultPingInterval,
+			Timeout:  DefaultPingTimeout,
 		},
-		MOTD: []string{"Welcome to IRCD-GOLANG-SERVER!", "This is a sample message of the day."},
+		MOTD: []string{"Welcome to -GOLANG-SERVER!", "This is a sample message of the day."},
 	}
 }
