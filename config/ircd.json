@@ -1,0 +1,7 @@
+{
+  "Name": "go-ircd",
+  "Network": "go-ircd-network",
+  "Port": 4242,
+  "MOTD": "Welcome to go-ircd!",
+  "Hostname": "localhost"
+}
