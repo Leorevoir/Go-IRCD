@@ -11,5 +11,4 @@ function _assert()
     fi
 }
 
-_assert "go build -o ircd-server ./cmd/server"
-_assert "go build -o ircd-client ./cmd/client"
+_assert "go build -o ircd-server ./cmd/ircd"
