@@ -1,13 +1,18 @@
 package main
 
 import (
-	"fmt"
-	"github.com/Leorevoir/Go-IRCD/internal/config"
+	"flag"
+	"github.com/Leorevoir/Go-IRCD/pkg/server"
+	"runtime"
 )
 
-func main() {
-	c := config.DefaultConfig()
+var config_file = flag.String("config", "./config/ircd.json", "Path to the configuration file for the IRC daemon's configuration")
 
-	fmt.Printf("Server name: %s\n", c.ServerName)
-	fmt.Printf("Port: %d\n", c.Port)
+func main() {
+	runtime.GOMAXPROCS(runtime.NumCPU())
+
+	flag.Parse()
+
+	config := server.FromJSON(*config_file)
+	server.Run(config)
 }
