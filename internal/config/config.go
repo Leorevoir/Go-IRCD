@@ -2,6 +2,9 @@ package config
 
 import "time"
 
+/*
+* default configuration values for testing purposes
+ */
 const (
 	DefaultPort         = 4242
 	DefaultName         = "ircd.example.com"
@@ -10,11 +13,17 @@ const (
 	DefaultPingTimeout  = 30 * time.Second
 )
 
+/*
+* ping configuration
+ */
 type Ping struct {
 	Interval time.Duration
 	Timeout  time.Duration
 }
 
+/*
+* server configuration
+ */
 type Config struct {
 	Port       uint16
 	ServerName string
@@ -23,6 +32,9 @@ type Config struct {
 	MOTD       []string
 }
 
+/*
+* default configuration values for testing purposes
+ */
 func DefaultConfig() *Config {
 	return &Config{
 		Port:       DefaultPort,
